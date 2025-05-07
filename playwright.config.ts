@@ -1,6 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 import path from 'path';
+import testrail from './testrail.js';
 
 /**
  * Read environment variables from file.
@@ -30,6 +31,11 @@ export default defineConfig({
       {
         name: 'My Test Report',
         outputFile: './monocart-report/index.html',
+        trend: './monocart-report/index.json',
+        // zip: true,
+        onEnd: async (reportData, helper) => {
+          await testrail(reportData, helper);
+        }
       },
     ],
   ],
