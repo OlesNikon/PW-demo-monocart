@@ -1,6 +1,7 @@
 import Testrail from 'testrail-api';
 import EC from 'eight-colors';
 import dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
