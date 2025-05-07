@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
-  
+
 jobs:
   test:
     timeout-minutes: 60
@@ -36,3 +36,4 @@ jobs:
         keep_files: true
         publish_branch: gh-pages
         force_orphan: true
+        enable_jekyll: false
