@@ -1,0 +1,17 @@
+{
+  "name": "pw-demo-monocart",
+  "version": "1.0.0",
+  "description": "Demo Test Automation with monocart as reporter",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.15",
+    "monocart-reporter": "^2.9.18"
+  }
+}
