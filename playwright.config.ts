@@ -1,7 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 import path from 'path';
-import testrail from './testrail.js';
 
 /**
  * Read environment variables from file.
@@ -33,19 +32,29 @@ export default defineConfig({
         outputFile: './monocart-report/index.html',
         trend: './monocart-report/index.json',
         // zip: true,
-        onEnd: async (reportData, helper) => {
-          await testrail(reportData, helper);
-        }
+        // onEnd: async (reportData, helper) => {
+        //   await testrail(reportData, helper);
+        // }
       },
     ],
+    ['playwright-reporter-testrail', {
+      domain: process.env.TESTRAIL_HOST,
+      username: process.env.TESTRAIL_USERNAME,
+      password: process.env.TESTRAIL_PASSWORD,
+      includeAllCases: false,
+      includeAttachments: true,
+      closeRuns: false,
+      apiChunkSize: 10,
+      runNameTemplate: 'Playwright Run #{date}'
+    }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     actionTimeout: 30_000,
     baseURL: BASE_URL,
-    trace: 'retain-on-failure',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    trace: 'on',
+    screenshot: 'on',
+    video: 'on',
     acceptDownloads: true,
     headless: Boolean(process.env.CI),
   },

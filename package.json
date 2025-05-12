@@ -15,7 +15,8 @@
   "devDependencies": {
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.15.15",
-    "monocart-reporter": "^2.9.18"
+    "monocart-reporter": "^2.9.18",
+    "playwright-reporter-testrail": "^1.2.2"
   },
   "dependencies": {
     "@eslint/eslintrc": "^3.2.0",

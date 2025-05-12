@@ -2,20 +2,14 @@ import { test, expect } from '../fixtures/baseFixture';
 import { STANDARD_USER, INVALID_USER } from '../data/credentials';
 
 test.describe('Login form tests', { tag: ['@smoke', '@login'] }, () => {
-  /**
-  * @testrail 1
-  */
-  test('Verify that user can login with valid credentials', async ({ app }) => {
+  test('Verify that user can login with valid credentials', { tag: ['@1-1-1'] }, async ({ app }) => {
     await app.login.open();
     await app.login.login(STANDARD_USER);
 
     await expect(app.products.productsTitle).toBeVisible();
   });
 
-  /**
-  * @testrail 2
-  */
-  test('Verify that user can not login with invalid credentials', async ({ app }) => {
+  test('Verify that user can not login with invalid credentials', { tag: ['@1-1-2'] }, async ({ app }) => {
     await app.login.open();
     await app.login.login(INVALID_USER);
 
@@ -24,10 +18,7 @@ test.describe('Login form tests', { tag: ['@smoke', '@login'] }, () => {
     );
   });
 
-  /**
-  * @testrail 3
-  */
-  test('Verify that user can not login without credentials', async ({ app }) => {
+  test('Verify that user can not login without credentials', { tag: ['@1-1-3'] }, async ({ app }) => {
     await app.login.open();
     await app.login.submitLogin();
 
