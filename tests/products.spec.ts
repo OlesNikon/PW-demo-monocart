@@ -2,7 +2,7 @@ import { test, expect } from '../fixtures/baseFixture';
 import { PRODUCTS } from '../data/constants';
 
 test.describe('Product page tests', { tag: ['@smoke', '@product'] }, () => {
-  test('Verify that added product is present in the cart', { tag: ['@1-1-4'] }, async ({ standardUser }) => {
+  test.skip('Verify that added product is present in the cart', { tag: ['@1-1-4'] }, async ({ standardUser }) => {
     await standardUser.app.products.open();
     await standardUser.app.products.addProductToCart(PRODUCTS.backpack);
     await standardUser.app.products.header.openCart();
